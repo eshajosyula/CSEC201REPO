@@ -16,7 +16,7 @@ struct LinkedList {
 
 
 
-//Function prototypes
+//		function prototypes
 
 void initialize(struct LinkedList* list);
 

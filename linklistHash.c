@@ -141,7 +141,7 @@ void validateHistory(void) {
 
 		for (i = 0; i < hashSize; i++) {
 			if (recomputed[i] != nxt->hash[i]) {
-				printf("WARNING: Alteration detected at node #%d: %s\n", nodeNum + 1, nxt->cmd);
+				printf("warning: alteration detected @ node #%d: %s\n", nodeNum + 1, nxt->cmd);
 				return;
 			}
 		}

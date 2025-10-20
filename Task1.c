@@ -4,6 +4,7 @@
 
 
 static int cmdInputted(char* tokens[], int count, char* fullInput) {
+    //      history
     if (strcmp(tokens[0], "history") == 0) {
         if (count == 1) {
             printHistory();
@@ -15,7 +16,8 @@ static int cmdInputted(char* tokens[], int count, char* fullInput) {
             return 0;
         }
     }
-
+    
+    //      validate
     if (strcmp(tokens[0], "validate") == 0) {
         if (count == 1) {
             validateHistory();
@@ -28,9 +30,10 @@ static int cmdInputted(char* tokens[], int count, char* fullInput) {
         }
     }
 
+    //      quit
     if (strcmp(tokens[0], "quit") == 0) {
         if (count == 1) {
-            printf("this is a valid FML command.\n");
+            printf("bye!!\n");
             addHistory(fullInput);
             return 1;
         }
@@ -39,7 +42,7 @@ static int cmdInputted(char* tokens[], int count, char* fullInput) {
             return 0;
         }
     }
-
+    //      upload
     if (strcmp(tokens[0], "upload") == 0) {
         if (count == 3) {
             printf("this is a valid FML command.\n");
@@ -51,7 +54,7 @@ static int cmdInputted(char* tokens[], int count, char* fullInput) {
             return 0;
         }
     }
-
+    //      download
     if (strcmp(tokens[0], "download") == 0) {
         if (count == 3) {
             printf("this is a valid FML command.\n");
@@ -63,7 +66,7 @@ static int cmdInputted(char* tokens[], int count, char* fullInput) {
             return 0;
         }
     }
-
+    //      delete
     if (strcmp(tokens[0], "delete") == 0) {
         if (count == 3) {
             printf("this is a valid FML command.\n");
@@ -75,7 +78,7 @@ static int cmdInputted(char* tokens[], int count, char* fullInput) {
             return 0;
         }
     }
-
+    //      change
     if (strcmp(tokens[0], "change") == 0) {
         if (count == 3) {
             printf("this is a valid FML command.\n");
@@ -87,7 +90,7 @@ static int cmdInputted(char* tokens[], int count, char* fullInput) {
             return 0;
         }
     }
-
+    //      show
     if (strcmp(tokens[0], "show") == 0) {
         if (count == 3) {
             printf("this is a valid FML command.\n");
@@ -109,10 +112,11 @@ int main(void) {
     char inputCopy[maxInp];
     char* tokens[10];
 
+    //      start of cmd prompt loop
     while (1) {
         printf("FML> ");
 
-        if (scanf(" %[^\n]", input) != 1) {
+        if (scanf(" %[^\n]", input) != 1) {     // break if error in input
             break;
         }
 
@@ -127,7 +131,7 @@ int main(void) {
         inputCopy[maxInp - 1] = '\0';
 
         int count = 0;
-        char* tok = strtok(input, " ");
+        char* tok = strtok(input, " ");     // splittin
         while (tok != NULL && count < 10) {
             tokens[count++] = tok;
             tok = strtok(NULL, " ");
@@ -137,13 +141,13 @@ int main(void) {
             continue;
         }
 
-        if (cmdInputted(tokens, count, inputCopy)) {
+        if (cmdInputted(tokens, count, inputCopy)) {        // handling logic
             if (strcmp(tokens[0], "quit") == 0) {
                 break;
             }
         }
     }
 
-    printf("bye!!\n");
+    printf("exiting...\n");
     return 0;
 }
