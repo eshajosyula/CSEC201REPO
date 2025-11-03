@@ -24,7 +24,7 @@
     <ClCompile Include="linklistHash.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="hashLoader.cpp">
+    <ClCompile Include="hashLoader.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
